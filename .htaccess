@@ -1,4 +1,5 @@
-Redirect 301 /index.html https://harrylooney.co.uk/
+Redirect 301 /index.html https://harrylooney.co.uk/home/
+Redirect 301 / https://harrylooney.co.uk/home/
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
