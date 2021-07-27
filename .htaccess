@@ -1,5 +1,9 @@
-RewriteEngine On
-RewriteRule ^home /index.html [L]
-RewriteRule ^contact /contact.html [L]
-RewriteRule ^about /about.html [L]
-RewriteRule ^portfolio /portfolio.html [L]
+Redirect 301 / http://harrylooney.co.uk/index.html
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+)/$ $1.html
+RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
+RewriteRule (.*)$ /$1/ [R=301,L]
