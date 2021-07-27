@@ -3,13 +3,7 @@ Redirect 301 / https://harrylooney.co.uk/home/
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1/home.html [NC,L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1/about.html [NC,L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1/contact.html [NC,L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1/portfolio.html [NC,L]
+RewriteRule ^([^\.]+)$ $1/index.html [NC,L]
 
 Options +FollowSymLinks
 RewriteEngine On
