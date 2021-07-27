@@ -2,7 +2,7 @@ Redirect 301 /index.html https://harrylooney.co.uk/
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteRule ^([^\.]+)$ $1{FILENAME}.html [NC,L]
 
 Options +FollowSymLinks
 RewriteEngine On
