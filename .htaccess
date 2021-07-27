@@ -1,7 +1,6 @@
+RewriteEngine On
 Redirect 301 /index.html https://harrylooney.co.uk/home/
 Redirect 301 / https://harrylooney.co.uk/home/
-
-RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1/index.html [NC,L]
 
