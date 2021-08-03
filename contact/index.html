@@ -8,21 +8,28 @@
 
 		<style>
 			.topnav {
-			background-color: #fafafa;
-			overflow: hidden;
+				background-color: #fafafa;
+				overflow: hidden;
 			}
 			
-			.topnav a {
+			.topnav .nav-button {
 				float: right;
-				display: block;
 				color: #505050;
-				text-align: center;
-				padding: 12pt 12pt;
+				padding: 0.75em 1em;
 				text-decoration: none;
 				font-size: 18pt;
 				transition: all 0.3s ease;
-			}
-			
+			}			
+
+			.topnav .logo {
+				float: left;
+				color: #505050;
+				padding: 0.75em 1em;
+				text-decoration: none;
+				font-size: 18pt;
+				transition: all 0.3s ease;
+			}			
+
 			.topnav a:hover {
 				background-color: #b5b5b5;
 				color: #404040;
@@ -35,100 +42,107 @@
 				transition: all 0.2s ease;
 			}
 			
+			
 			.topnav .icon {
 				display: none;
 			}
 
 			.body {
-			background-color: #f0f0f0;
-			width: 100%; 
+				background-color: #f0f0f0;
+				width: 100%; 
 			}
 			
 			.main {
-			background: #ffffff;
-			border-radius: 3px;
-			width: 100%; 
+				background: #ffffff;
+				border-radius: 3px;
+				width: 100%; 
 			}
 
 			img {
-			border: none;
-			-ms-interpolation-mode: bicubic;
-			max-width: 100%; 
+				border: none;
+				-ms-interpolation-mode: bicubic;
+				max-width: 100%;
 			}
 
 			body {
-			background-color: #f0f0f0;
-			font-family: sans-serif;
-			-webkit-font-smoothing: antialiased;
-			font-size: 14px;
-			line-height: 1.4;
-			margin: 0;
-			padding: 0;
-			-ms-text-size-adjust: 100%;
-			-webkit-text-size-adjust: 100%; 
+				background-color: #f0f0f0;
+				font-family: sans-serif;
+				-webkit-font-smoothing: antialiased;
+				font-size: 14px;
+				line-height: 1.4;
+				margin: 0;
+				padding: 0;
+				-ms-text-size-adjust: 100%;
+				-webkit-text-size-adjust: 100%; 
 			}
 
 			table {
-			border-collapse: separate;
-			mso-table-lspace: 0pt;
-			mso-table-rspace: 0pt;
-			width: 100%; }
-			table td {
-			font-family: sans-serif;
-			font-size: 14px;
-			vertical-align: top; 
+				border-collapse: separate;
+				mso-table-lspace: 0pt;
+				mso-table-rspace: 0pt;
+				width: 100%; }
+				table td {
+				font-family: sans-serif;
+				font-size: 14px;
+				vertical-align: top; 
 			}
 
 			p,
 			ul,
 			ol {
-			font-family: sans-serif;
-			font-size: 14px;
-			font-weight: normal;
-			margin: 0;
-			margin-bottom: 15px; 
+				font-family: sans-serif;
+				font-size: 14px;
+				font-weight: normal;
+				margin: 0;
+				margin-bottom: 15px; 
+				padding: 1em;
 			}
 
 			p li,
 			ul li,
 			ol li {
-			list-style-position: inside;
-			margin-left: 5px; 
+				list-style-position: inside;
+				margin-left: 5px; 
 			}
 
 			a {
-			color: #1fa803;
-			text-decoration: underline; 
+				color: #1fa803;
+				text-decoration: underline; 
 			}
 
 			hr {
-			border: 0;
-			border-bottom: 2px solid #1fa803;
-			margin: 20px 0; 
+				border: 0;
+				border-bottom: 2px solid #1fa803;
+				margin: 20px 0;	
 			}
-
+			
+			h1 {
+				padding: 0.5em;
+			}
+			
 			.center {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			width: 50%;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
 			}
-
+						
 			.logo {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			width: 35% !important;
+				float: left;
+				display: inline-flex;
+				padding: 0.6em 1em !important;
+				margin: auto;
+				width: 4%;
 			}
 
 			.icon {
-			height: 50px;
-			width: 50px;
-			padding: 5px;
-			margin: auto;
-			display: inline;
-			margin-left: auto;
-			margin-right: auto;
+				height: 50px;
+				width: 50px;
+				padding: 5px;
+				margin: auto;
+				display: inline;
+				margin-left: auto;
+				margin-right: auto;
 			}
 
 			@media only screen and (max-width: 620px) {
@@ -153,22 +167,27 @@
 				}
 				
 				.logo {
-					width: 60% !important;
+					display: inline-flex;
+					margin: auto;
+					width: 100% !important;
+					padding: 1em 1em
 				}
 			}
 		</style>
 	</head>
 	
 	<body>
-	 <div class="topnav">
-		<a href="/portfolio/">Portfolio</a>
-		<a class="active" href="/contact/">Contact</a>
-		<a href="/about/">About</a>
-		<a href="/">Home</a>
+	<div class="topnav">
+		<a class="logo" href="/"><img alt="Logo" src="images/favicon.png"></a>
+		<a class="nav-button" href="/portfolio/"><span class="nav-button">Portfolio</span></a>
+		<a class="nav-button" href="/contact/"><span class="nav-button">Contact</span></a>
+		<a class="nav-button" href="/about/"><span class="nav-button">About</span></a>
+		<!-- <a class="nav-button" href="/"><span class="nav-button">Home</span></a> -->
+		
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>
 		</a>
-	</div> 
+	</div> 	
 		<h1>Contact</h1>
 		<p>Drop the addy</p>
 	</body>
