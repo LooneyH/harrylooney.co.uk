@@ -3,13 +3,14 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 		<title>Harry Looney</title>
 
 		<style>
 			.topnav {
 				background-color: #fafafa;
 				overflow: hidden;
+				z-index: 1;
 			}
 			
 			.topnav .nav-button {
@@ -29,7 +30,7 @@
 			}			
 
 			.topnav a:hover {
-				background-color: #b5b5b5;
+				background-color: #b5b5b2;
 				color: #404040;
 				transition: all 0.3s ease;
 			}
@@ -41,14 +42,10 @@
 			}
 			
 			
-			.topnav .icon {
+			.topnav .toggler, .hamburger {
 				display: none;
 			}
 
-			.body {
-				background-color: #f0f0f0;
-				width: 100%; 
-			}
 			
 			.main {
 				background: #ffffff;
@@ -63,7 +60,7 @@
 			}
 
 			body {
-				background-color: #f0f0f0;
+				background-color: #e9e9e7;
 				font-family: sans-serif;
 				-webkit-font-smoothing: antialiased;
 				font-size: 14px;
@@ -145,7 +142,10 @@
 
 			@media only screen and (max-width: 620px) {
 				
-				.topnav a:not(:first-child) {display: none;}
+				.topnav a:not(:first-child){
+					display: none;
+				}
+				
 				.topnav a.icon {
 					float: right;
 					display: block;
@@ -164,11 +164,154 @@
 					text-align: left;
 				}
 				
+				
+				<!-- Hamburger Menu -->
+				
+				.topnav {
+					position: fixed;
+					top: 0;
+					right: 0;
+					z-index: 1;
+				}
+				
+				.topnav .toggler {
+					display: inline-block;
+					position: absolute;
+					top: 0;
+					right: 0;
+					z-index: 2;
+					cursor: pointer;
+					width: 75px;
+					height: 75px;
+					opacity: 0;
+				}
+
+				.topnav .hamburger {
+					position: absolute;
+					top: 0;
+					right: 0;
+					z-index: 1;
+					width: 80px;
+					height: 80px;
+					padding: 1rem;
+					background: #fafafa;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				
+				<!-- Hamburger lines -->
+				.topnav .hamburger > div {
+					position: relative;
+					width: 100%;
+					height: 2px;
+					background-color: #505050;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: all 0.3s ease;
+				}
+
+				.topnav .hamburger > div:before,
+				.topnav .hamburger > div:after {
+					content: '';
+					position: absolute;
+					z-index: 1;
+					top: -10px;
+					width: 100%;
+					height: 2px;
+					background: inherit;
+ 				}
+
+				.topnav .hamburger > div:after {
+					top: 10px;
+				}
+				
+				<!-- Toggler animation -->
+				
+				.topnav .toggler:checked + .hamburger > div {
+					transform: rotate(135deg);
+				}
+				
+
+				<!-- Turns into X -->
+				.topnav .toggler:checked + .hamburger > div:before,
+				.topnav .toggler:checked + .hamburger > div:after {
+					top: 0;
+					transform: rotate(90deg);
+				}
+				
+				.topnav .toggler:checked:hover + .hamburger > div {
+					transform: rotate(225deg);
+				}
+				
+				.topnav .toggler:checked ~ .menu {
+					visibility: visible;
+				}
+
+				.topnav .toggler:checked ~ .menu > div {
+					transform: scale(1);
+					transition-duration: 0.3s;
+				}
+
+				.topnav .toggler:checked ~ .menu > div > div {
+					opacity: 1;
+					transform: opacity 0.3s ease;
+				}
+
+				
+				.topnav .menu {
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					visibility: hidden;
+					overflow: hidden;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				
+				.topnav .menu > div {
+					background: var(#505050);
+					border-radius: 25%;
+					width: 200vw;
+					height: 200vw;
+					display: flex;
+					flex: none;
+					align-items: center;
+					justify-content: center;
+					transform: scale(0);
+					transition: all 0.3s ease;
+				}
+
+				.topnav .menu > div > div {
+					text-align: center;
+					max-width: 90vw;
+					max-height: 100vh;
+					opacity: 0;
+					transition: opacity 0.3s ease;
+				}
+				
+				.topnav .menu > div > div > ul > li {
+					list-style: none;
+					color: #505050;
+					font-size: 1.5rem;
+					padding: 1rem;
+				}
+
+				.topnav .menu > div > div > ul > li > a {
+					color: inherit;
+					text-decoration: none;
+					transition: color 0.3s ease;
+				}
+				
 				.logo {
 					display: inline-flex;
 					margin: auto;
-					width: 100% !important;
-					padding: 1em 1em
+					width: 25% !important;
+					padding: 1em 1em;
 				}
 			}
 		</style>
@@ -176,15 +319,25 @@
 	
 	<body>
 	<div class="topnav">
-		<a class="logo" href="/"><img alt="Logo" src="/images/favicon.png"></a>
+		<a class="logo" href="/"><img alt="Logo" src="images/favicon.png"></a>
 		<a class="nav-button" href="/portfolio/"><span class="nav-button">Portfolio</span></a>
 		<a class="nav-button" href="/contact/"><span class="nav-button">Contact</span></a>
 		<a class="nav-button" href="/about/"><span class="nav-button">About</span></a>
 		<!-- <a class="nav-button" href="/"><span class="nav-button">Home</span></a> -->
-		
-		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-			<i class="fa fa-bars"></i>
-		</a>
+		<input type="checkbox" class="toggler">
+		<div class="hamburger">
+		<div class="menu">
+			<div>
+				<div>
+					<ul>
+						<li><a href="/portfolio/">Portfolio</a></li>
+						<li><a href="/contact/">Contact</a></li>
+						<li><a href="/about/">About</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		</div>
 	</div> 
 
 		<h1>Welcome</h1>
